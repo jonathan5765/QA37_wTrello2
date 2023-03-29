@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.BoardCreation" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-29T08:26:33" hostname="LAPTOP-AKMCIEGD" time="12.005">
+  <properties/>
+  <testcase name="boardCreation" classname="tests.BoardCreation" time="12.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

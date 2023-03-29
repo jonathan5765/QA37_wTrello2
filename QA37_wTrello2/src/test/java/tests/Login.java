@@ -1,26 +1,46 @@
 package tests;
 
+import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Login {
+public class Login extends TestBase{
     WebDriver wd;
+    @BeforeMethod
+    public void preCondition(){
+        if(app.getUser().isLogged()){
+            app.getUser().logOut();
+        }
+    }
 
     @Test
     public void login() {
-        click(By.cssSelector("[href='/login']"));
+        User user = new User().setEmail("jonathan5765@gmail.com").setPassword("Zeylik2504");
 
-        type(By.cssSelector("#user"), "test@gmail.com");
+        app.getUser().initLogin();
+        app.getUser().pause(2000);
+        app.getUser().fillINLoginForm(user);
+        app.getUser().submitLogin();
+        app.getUser().pause(2000);
+
+        Assert.assertTrue(app.getUser().isLogged());
+
+    }
+    @Test
+    public void login2() {
+
+        app.getUser().initLogin();
+        app.getUser().pause(2000);
+        app.getUser().fillINLoginForm("jonathan5765@gmail.com","Zeylik2504");
+        app.getUser().submitLogin();
+        app.getUser().pause(2000);
+
+        Assert.assertTrue(app.getUser().isLogged());
+
     }
 
-    public void type(By locator, String text) {
-        click(locator);
-        wd.findElement(locator).click();
-        wd.findElement(locator).sendKeys(text);
-    }
 
-    public void click(By locator) {
-        wd.findElement(locator).click();
-    }
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.BoardCreation" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-29T08:26:33" hostname="LAPTOP-AKMCIEGD" time="12.005">
+<testsuite name="tests.BoardCreation" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-05-03T10:31:02" hostname="LAPTOP-AKMCIEGD" time="42.663">
   <properties/>
-  <testcase name="boardCreation" classname="tests.BoardCreation" time="12.005"/>
+  <testcase name="boardCreation[0](models.Board@11b377c5)" classname="tests.BoardCreation" time="16.46"/>
+  <testcase name="boardCreation[1](models.Board@1fac1d5c)" classname="tests.BoardCreation" time="17.067"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

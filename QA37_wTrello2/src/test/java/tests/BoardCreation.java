@@ -1,6 +1,9 @@
 package tests;
 
+import manage.MyDataProvider;
+import models.Board;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -15,15 +18,20 @@ public class BoardCreation extends TestBase {
         app.getUser().pause(2000);
     }
 
-    @Test
-    public void boardCreation() {
+    @Test(dataProvider = "boardDataModel", dataProviderClass = MyDataProvider.class)
+    public void boardCreation(Board board) {
         app.getBoard().initBoardCreationFromHeader();
-        app.getBoard().fillInBoardCreationForm("qa37");
+        app.getBoard().fillInBoardCreationForm(board);
         //app.getBoard().scrollDownTheForm();
         app.getBoard().pause(2000);
         app.getBoard().submitBoardCreation();
         app.getBoard().pause(2000);
-        app.getBoard().isCreate();
+        Assert.assertTrue(app.getBoard().isCreate());
+    //    app.getBoard().isCreate();
+        app.getBoard().pause(2000);
+        app.getBoard().returnHomePage();
+        app.getUser().logOut();
+        app.getUser().pause(2000);
 
 
     }
